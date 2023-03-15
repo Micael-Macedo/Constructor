@@ -1,0 +1,177 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin spaceCenter($align) {
+    display: flex;
+    align-items: $align;
+    justify-content: center;
+}
+
+@mixin spaceBetween($align) {
+    display: flex;
+    align-items: $align;
+    justify-content: space-between;
+}
+
+@mixin spaceAround($align) {
+    display: flex;
+    align-items: $align;
+    justify-content: space-around;
+}
+
+@mixin Column() {
+    flex-direction: column;
+}
+
+$headerText: #FFFFFF;
+$topic1: #FF6633;
+$h1Color: #FFFFFF;
+$textColor1: #FFFFFF;
+
+$navHeight: 20vh;
+
+body {
+    header {
+        width: 100vw;
+        height: $navHeight;
+        position: absolute;
+
+        nav {
+            width: 100%;
+            height: 100%;
+
+            div.desktop {
+                width: 100vw;
+                height: 100%;
+                @include spaceAround(center);
+                color: $headerText;
+
+                ul {
+                    @include spaceBetween(center);
+                    list-style: none;
+                    gap: 35px;
+
+                    li {
+                        font-weight: 700;
+                        font-size: 13px;
+                        line-height: 25px;
+
+                        a {
+                            text-decoration: none;
+                            color: $headerText;
+
+                            &.brandName {
+                                font-weight: 700;
+                                font-size: 20px;
+                                line-height: 30px;
+                            }
+                        }
+
+                        input {
+                            background-color: transparent;
+                            border: none;
+                            color: $headerText;
+
+                            &::placeholder {
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 30px;
+                                color: $headerText;
+                            }
+                        }
+                    }
+                }
+            }
+
+            div.mobile {
+                display: none;
+            }
+
+            @media (max-width: 768px) {
+                div.desktop {
+                    display: none;
+                }
+
+                div.mobile {
+                    display: flex;
+                    flex-direction: column;
+
+                    .mobileMenu {
+                        width: 100%;
+                        @include spaceAround(center);
+
+                        ul {
+                            list-style: none;
+                        }
+                    }
+
+                    .mobileOptions {
+                        display: none;
+
+                        &.open {
+                            @include spaceCenter(center);
+                            @include Column();
+                            height: 100vh - $navHeight;
+                            background-color: #FFFFFF;
+
+                            ul {
+                                list-style: none;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        width: 100vw;
+
+        .content {
+            padding: 5%;
+        }
+
+        .mainContent {
+            padding-top: $navHeight;
+            background-image: url("./images/Background.png");
+            background-repeat: no-repeat;
+
+            @include spaceCenter(center);
+            @include Column();
+
+            p.topic {
+                background-color: $topic1;
+                font-weight: 900;
+                font-size: 12px;
+                line-height: 20px;
+                color: $textColor1;
+                border-radius: 15px;
+                padding: 5px 15px;
+            }
+
+            h1 {
+                margin: 95px 0px 125px 0px;
+                width: 60%;
+                font-weight: 400;
+                font-size: 64px;
+                line-height: 90px;
+                text-align: center;
+                color: $h1Color;
+            }
+            .contact{
+                width: 100%;
+                @include spaceBetween(center);
+                div{
+                    @include spaceBetween(center);
+                    gap: 30px;
+                    color: $textColor1;
+                }
+            }
+        }
+    }
+
+}
