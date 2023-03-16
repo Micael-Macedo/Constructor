@@ -91,12 +91,61 @@ body header nav div.mobile {
   }
   body header nav div.mobile .mobileMenu {
     width: 100%;
+    height: 18vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 100px;
   }
   body header nav div.mobile .mobileMenu ul {
     list-style: none;
+  }
+  body header nav div.mobile .mobileMenu ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body header nav div.mobile .mobileMenu ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  body header nav div.mobile .mobileMenu ul li button.hamburguer {
+    background-color: transparent;
+    border: none;
+  }
+  body header nav div.mobile .mobileMenu ul li button.hamburguer img {
+    width: 60px;
+    height: 60px;
+  }
+  body header nav div.mobile .mobileMenu ul.inputSearch {
+    position: relative;
+  }
+  body header nav div.mobile .mobileMenu ul.inputSearch input {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 5%;
+    border-radius: 20px;
+    color: #FFFFFF;
+  }
+  body header nav div.mobile .mobileMenu ul.inputSearch input::-moz-placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #FFFFFF;
+    opacity: 0.6;
+  }
+  body header nav div.mobile .mobileMenu ul.inputSearch input::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #FFFFFF;
+    opacity: 0.6;
+  }
+  body header nav div.mobile .mobileMenu ul.inputSearch i {
+    position: relative;
+    right: 30px;
   }
   body header nav div.mobile .mobileOptions {
     display: none;
@@ -313,7 +362,8 @@ body .dealsContent .grid .gridItem .gridItemText .value {
 body .dealsContent .grid .gridItem .gridItemText .location {
   margin-bottom: 15px;
 }
-body .dealsContent .grid .gridItem .gridItemText .location, body .dealsContent .grid .gridItem .gridItemText .info {
+body .dealsContent .grid .gridItem .gridItemText .location,
+body .dealsContent .grid .gridItem .gridItemText .info {
   color: #ADB8CC;
 }
 body .feedbackService .clients {

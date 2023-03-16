@@ -21,6 +21,7 @@
     align-items: $align;
     justify-content: space-around;
 }
+
 @mixin spaceLeft($align) {
     display: flex;
     align-items: $align;
@@ -137,10 +138,54 @@ body {
 
                     .mobileMenu {
                         width: 100%;
+                        height: $navHeight;
                         @include spaceAround(center);
+                        gap: 100px;
 
                         ul {
                             list-style: none;
+
+                            li {
+                                @include spaceCenter(center);
+                                a {
+                                    color: $headerText;
+                                    text-decoration: none;
+                                }
+
+                                button.hamburguer {
+                                    background-color: transparent;
+                                    border: none;
+
+                                    img {
+                                        width: 60px;
+                                        height: 60px;
+                                    }
+                                }
+                                
+                            }
+                        }
+                        ul.inputSearch{
+                            position: relative;
+                            input{
+                                background-color: transparent;
+                                border: 2px solid white;
+                                padding: 5%;
+                                border-radius: 20px;
+                                color: $headerText;
+
+                                &::placeholder {
+                                    font-family: 'Roboto', sans-serif;
+                                    font-weight: 500;
+                                    font-size: 14px;
+                                    line-height: 30px;
+                                    color: $headerText;
+                                    opacity: 0.6;
+                                }
+                            }
+                            i{
+                                position: relative;
+                                right: 30px;
+                            }
                         }
                     }
 
@@ -384,10 +429,13 @@ body {
                         line-height: 30px;
                         margin-bottom: 20px;
                     }
-                    .location{
+
+                    .location {
                         margin-bottom: 15px;
                     }
-                    .location, .info {
+
+                    .location,
+                    .info {
                         color: $textColor4;
                     }
                 }
@@ -395,17 +443,20 @@ body {
 
         }
     }
-    .feedbackService{
-        .clients{
+
+    .feedbackService {
+        .clients {
             @include spaceCenter(top);
             gap: 40px;
-            .client{
-                .clientCommment{
+
+            .client {
+                .clientCommment {
                     width: 300px;
                     padding: 30px;
                     background-color: white;
                 }
-                .clientData{
+
+                .clientData {
                     padding: 30px;
                     @include spaceLeft(center);
                     gap: 20px;
@@ -413,36 +464,43 @@ body {
             }
         }
     }
-    .instagramContent{
-        .instagramPosts{
+
+    .instagramContent {
+        .instagramPosts {
             @include spaceCenter(center);
             flex-wrap: wrap;
             gap: 30px 30px;
         }
     }
-    .contactContent{
+
+    .contactContent {
         background-color: $bg2Color;
         margin: 5% 8%;
         padding: 100px 12%;
-        form{
+
+        form {
             @include spaceCenter(center);
             @include Column();
             width: 100%;
             gap: 30px 30px;
             flex-wrap: wrap;
-            .inlineInput{
+
+            .inlineInput {
                 width: 100%;
                 @include spaceBetween(center);
                 gap: 30px 30px;
                 flex-wrap: wrap;
-                input{
+
+                input {
                     width: 50%;
                 }
             }
-            .form-input{
+
+            .form-input {
                 position: relative;
                 @include spaceCenter(center);
-                input{
+
+                input {
                     max-width: 100%;
                     min-width: 320px;
                     height: 40px;
@@ -452,7 +510,8 @@ body {
                     font-size: 1em;
 
                 }
-                img{
+
+                img {
                     width: 30px;
                     height: 30px;
                     position: absolute;
@@ -460,13 +519,16 @@ body {
                     bottom: 20px;
                 }
             }
-            .max{
+
+            .max {
                 width: 100%;
-                input{
+
+                input {
                     width: 100%;
                 }
             }
-            button{
+
+            button {
                 padding: 15px 35px;
                 border-radius: 30px;
                 border: none;
@@ -474,33 +536,39 @@ body {
                 background-color: $buttonBg;
                 cursor: pointer;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     background-color: $buttonHoverText;
                 }
             }
         }
     }
 }
-footer{
-    .footerContent{
+
+footer {
+    .footerContent {
         padding: 90px 150px;
         @include spaceAround(center);
-        ul{
+
+        ul {
             list-style: none;
         }
-        .directionPage{
-            ul{
+
+        .directionPage {
+            ul {
                 @include spaceBetween(center);
                 flex-wrap: wrap;
-                gap:20px 52px ;
+                gap: 20px 52px;
                 width: 300px
             }
         }
     }
-    .footerTerms{
+
+    .footerTerms {
         @include spaceBetween(center);
-        padding: 30px 200px ;
-        ul{
+        padding: 30px 200px;
+
+        ul {
             list-style: none;
             @include spaceBetween(center);
         }
