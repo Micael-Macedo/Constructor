@@ -21,30 +21,51 @@
     align-items: $align;
     justify-content: space-around;
 }
+@mixin spaceLeft($align) {
+    display: flex;
+    align-items: $align;
+    justify-content: left;
+}
 
 @mixin Column() {
     flex-direction: column;
 }
 
 $headerText: #FFFFFF;
-$topic1: #FF6633;
+$headerHoverText: #FF6633;
+$buttonHoverText: #FF6633;
 $h1Color: #FFFFFF;
+$h2Color: #4D5E80;
+$h3Color: #4D5E80;
 $textColor1: #FFFFFF;
+$textColor2: #7D8FB3;
+$textColor3: #6B7A99;
+$textColor4: #ADB8CC;
+$showMore: #6B7A99;
+$topic1: #FF6633;
+$topic2: #29CC39;
+$topic3: #3361FF;
+$topicBg2: rgba(41, 204, 57, 0.1);
+$topicBg3: rgba(255, 102, 51, 0.1);
+$bgColor: #F7F8FA;
+$bg2Color: #F2F3F5;
+$buttonBg: #3361FF;
+$buttonColor: white;
 
-$navHeight: 20vh;
+$navHeight: 18vh;
 
 body {
+    background-color: $bgColor;
+
     header {
-        width: 100vw;
+        width: 100%;
         height: $navHeight;
         position: absolute;
 
         nav {
-            width: 100%;
             height: 100%;
 
             div.desktop {
-                width: 100vw;
                 height: 100%;
                 @include spaceAround(center);
                 color: $headerText;
@@ -56,8 +77,15 @@ body {
 
                     li {
                         font-weight: 700;
-                        font-size: 13px;
+                        font-size: 1em;
                         line-height: 25px;
+                        transition: 0.3s;
+                        @include spaceBetween(center);
+
+                        &:hover {
+                            color: $headerHoverText;
+                            cursor: pointer;
+                        }
 
                         a {
                             text-decoration: none;
@@ -65,22 +93,30 @@ body {
 
                             &.brandName {
                                 font-weight: 700;
-                                font-size: 20px;
+                                font-size: 1.3em;
                                 line-height: 30px;
                             }
+
                         }
 
                         input {
                             background-color: transparent;
                             border: none;
                             color: $headerText;
+                            margin-left: 20px;
 
                             &::placeholder {
+                                font-family: 'Roboto', sans-serif;
                                 font-weight: 500;
                                 font-size: 14px;
                                 line-height: 30px;
                                 color: $headerText;
+                                opacity: 0.6;
                             }
+                        }
+
+                        i {
+                            @include spaceCenter(center);
                         }
                     }
                 }
@@ -128,50 +164,346 @@ body {
         }
     }
 
-    section {
-        width: 100vw;
 
-        .content {
-            padding: 5%;
+    .content {
+        @include spaceCenter(center);
+        @include Column();
+        padding: 5%;
+
+        h2.contentHeader {
+            font-size: 2em;
+            margin: 5% 0%;
+            color: $h2Color;
+            text-align: center;
         }
 
-        .mainContent {
-            padding-top: $navHeight;
-            background-image: url("./images/Background.png");
-            background-repeat: no-repeat;
+        p.contentText {
+            text-align: center;
+        }
 
+        p.contentText {
+            text-align: center;
+            font-weight: 500;
+            max-width: 100%;
+            width: 700px;
+            font-size: 0.9em;
+            line-height: 30px;
+            color: $textColor2;
+            margin-bottom: 5%;
+        }
+    }
+
+    .topic {
+        text-align: center;
+        font-size: 1em;
+        line-height: 20px;
+        border-radius: 15px;
+        padding: 5px 15px;
+        font-weight: 900;
+        width: 96px;
+
+        &.topic2 {
+            color: $topic2;
+            background-color: $topicBg2;
+        }
+
+        &.topic1 {
+            background-color: $topic1;
+            color: $textColor1;
+        }
+
+        &.topic3 {
+            background-color: $topicBg2;
+            color: $topic3;
+        }
+
+        &.topic4 {
+            background-color: $topicBg3;
+            color: $topic1;
+        }
+    }
+
+    .mainContent {
+        height: 90vh;
+        padding-top: $navHeight;
+        background-image: url("./images/Background.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: top;
+        align-items: center;
+        @include Column();
+
+        h1 {
+            margin: 5%;
+            width: 60%;
+            font-weight: 400;
+            font-size: 4.5em;
+            line-height: 90px;
+            text-align: center;
+            color: $h1Color;
+        }
+
+        .contact {
+            width: 100%;
             @include spaceCenter(center);
-            @include Column();
+            gap: 81px;
 
-            p.topic {
-                background-color: $topic1;
-                font-weight: 900;
-                font-size: 12px;
-                line-height: 20px;
-                color: $textColor1;
-                border-radius: 15px;
-                padding: 5px 15px;
-            }
-
-            h1 {
-                margin: 95px 0px 125px 0px;
-                width: 60%;
-                font-weight: 400;
-                font-size: 64px;
-                line-height: 90px;
-                text-align: center;
-                color: $h1Color;
-            }
-            .contact{
-                width: 100%;
+            div {
                 @include spaceBetween(center);
-                div{
-                    @include spaceBetween(center);
-                    gap: 30px;
-                    color: $textColor1;
+                gap: 30px;
+                color: $textColor1;
+            }
+        }
+
+        button.showMore {
+            margin-top: 15%;
+            width: 140px;
+            height: 60px;
+            border-radius: 30px;
+            border: none;
+            color: $showMore;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+    }
+
+    .outStory {
+
+        div.ourInfos {
+            @include spaceBetween(center);
+            width: 100%;
+
+            div {
+                @include spaceCenter(center);
+                @include Column();
+                min-width: 300px;
+                max-width: 100%;
+                width: 350px;
+                height: 160px;
+                text-align: center;
+                background-color: white;
+                gap: 10px;
+
+                h3 {
+                    font-size: 2em;
                 }
             }
         }
     }
 
+    .servicesContent {
+
+        .ourServices {
+            width: 100%;
+            @include spaceAround(center);
+            text-align: center;
+
+            h3 {
+                color: $h3Color;
+                margin-top: 30px;
+                font-size: 0.8em;
+            }
+
+            .serviceIcon {
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                background-color: #FFFFFF;
+                @include spaceCenter(center);
+            }
+        }
+    }
+
+    .dealsContent {
+
+        .dealsOption {
+            width: 100%;
+            @include spaceCenter(center);
+            gap: 63px;
+            margin-bottom: 60px;
+
+            div {
+
+                button {
+                    font-size: 1em;
+                    color: $textColor2;
+                    border: none;
+                    background-color: transparent;
+                    border: 2px solid transparent;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $buttonHoverText;
+                        border-bottom: 2px solid $buttonHoverText;
+                    }
+                }
+            }
+        }
+
+        .grid {
+            display: grid;
+            position: relative;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+
+            .gridColumn1,
+            .gridColumn3 {
+                top: 15%;
+                position: relative;
+            }
+
+            .gridItem {
+                img {
+                    object-fit: fill;
+                }
+
+                .gridItemText {
+                    background-color: white;
+                    border-radius: 0px 0px 10px 10px;
+                    padding: 5%;
+
+                    h3,
+                    .value {
+                        color: $textColor3;
+                    }
+
+                    h3 {
+                        font-weight: 900;
+                        font-size: 15px;
+                        line-height: 30px;
+                        font-size: 1.2em;
+                        margin-bottom: 10px;
+                    }
+
+                    .value {
+                        font-weight: 700;
+                        line-height: 30px;
+                        margin-bottom: 20px;
+                    }
+                    .location{
+                        margin-bottom: 15px;
+                    }
+                    .location, .info {
+                        color: $textColor4;
+                    }
+                }
+            }
+
+        }
+    }
+    .feedbackService{
+        .clients{
+            @include spaceCenter(top);
+            gap: 40px;
+            .client{
+                .clientCommment{
+                    width: 300px;
+                    padding: 30px;
+                    background-color: white;
+                }
+                .clientData{
+                    padding: 30px;
+                    @include spaceLeft(center);
+                    gap: 20px;
+                }
+            }
+        }
+    }
+    .instagramContent{
+        .instagramPosts{
+            @include spaceCenter(center);
+            flex-wrap: wrap;
+            gap: 30px 30px;
+        }
+    }
+    .contactContent{
+        background-color: $bg2Color;
+        margin: 5% 8%;
+        padding: 100px 12%;
+        form{
+            @include spaceCenter(center);
+            @include Column();
+            width: 100%;
+            gap: 30px 30px;
+            flex-wrap: wrap;
+            .inlineInput{
+                width: 100%;
+                @include spaceBetween(center);
+                gap: 30px 30px;
+                flex-wrap: wrap;
+                input{
+                    width: 50%;
+                }
+            }
+            .form-input{
+                position: relative;
+                @include spaceCenter(center);
+                input{
+                    max-width: 100%;
+                    min-width: 320px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 30px;
+                    padding: 15px 30px;
+                    font-size: 1em;
+
+                }
+                img{
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    right: 25px;
+                    bottom: 20px;
+                }
+            }
+            .max{
+                width: 100%;
+                input{
+                    width: 100%;
+                }
+            }
+            button{
+                padding: 15px 35px;
+                border-radius: 30px;
+                border: none;
+                color: $buttonColor;
+                background-color: $buttonBg;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    background-color: $buttonHoverText;
+                }
+            }
+        }
+    }
+}
+footer{
+    .footerContent{
+        padding: 90px 150px;
+        @include spaceAround(center);
+        ul{
+            list-style: none;
+        }
+        .directionPage{
+            ul{
+                @include spaceBetween(center);
+                flex-wrap: wrap;
+                gap:20px 52px ;
+                width: 300px
+            }
+        }
+    }
+    .footerTerms{
+        @include spaceBetween(center);
+        padding: 30px 200px ;
+        ul{
+            list-style: none;
+            @include spaceBetween(center);
+        }
+    }
 }
