@@ -200,7 +200,7 @@ body {
         border-radius: 15px;
         padding: 5px 15px;
         font-weight: 900;
-        width: 96px;
+        width: 100px;
 
         &.topic2 {
             color: $topic2;
@@ -224,7 +224,6 @@ body {
     }
 
     .mainContent {
-        height: 90vh;
         padding-top: $navHeight;
         background-image: url("./images/Background.png");
         background-repeat: no-repeat;

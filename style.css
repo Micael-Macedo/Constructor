@@ -147,7 +147,7 @@ body .topic {
   border-radius: 15px;
   padding: 5px 15px;
   font-weight: 900;
-  width: 96px;
+  width: 100px;
 }
 body .topic.topic2 {
   color: #29CC39;
@@ -166,7 +166,6 @@ body .topic.topic4 {
   color: #FF6633;
 }
 body .mainContent {
-  height: 90vh;
   padding-top: 18vh;
   background-image: url("./images/Background.png");
   background-repeat: no-repeat;
