@@ -4,6 +4,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  font-size: 68.75%;
+}
+
 body {
   background-color: #F7F8FA;
 }
@@ -31,7 +35,7 @@ body header nav div.desktop ul {
 }
 body header nav div.desktop ul li {
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1.3rem;
   line-height: 25px;
   transition: 0.3s;
   display: flex;
@@ -48,7 +52,7 @@ body header nav div.desktop ul li a {
 }
 body header nav div.desktop ul li a.brandName {
   font-weight: 700;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   line-height: 30px;
 }
 body header nav div.desktop ul li input {
@@ -90,12 +94,11 @@ body header nav div.mobile {
     flex-direction: column;
   }
   body header nav div.mobile .mobileMenu {
-    width: 100%;
     height: 18vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 100px;
+    gap: 5%;
   }
   body header nav div.mobile .mobileMenu ul {
     list-style: none;
@@ -109,13 +112,36 @@ body header nav div.mobile {
     color: #FFFFFF;
     text-decoration: none;
   }
-  body header nav div.mobile .mobileMenu ul li button.hamburguer {
-    background-color: transparent;
-    border: none;
+  body header nav div.mobile .mobileMenu ul li.hamburguer {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
   }
-  body header nav div.mobile .mobileMenu ul li button.hamburguer img {
-    width: 60px;
-    height: 60px;
+  body header nav div.mobile .mobileMenu ul li.hamburguer div {
+    width: 40px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    transition-duration: 0.3s;
+  }
+  body header nav div.mobile .mobileMenu ul li.hamburguer.on div {
+    display: flex;
+  }
+  body header nav div.mobile .mobileMenu ul li.hamburguer.on .one {
+    transform: rotate(45deg);
+    position: relative;
+    top: 11px;
+  }
+  body header nav div.mobile .mobileMenu ul li.hamburguer.on .two {
+    opacity: 0;
+  }
+  body header nav div.mobile .mobileMenu ul li.hamburguer.on .three {
+    position: relative;
+    bottom: 13px;
+    transform: rotate(-45deg);
   }
   body header nav div.mobile .mobileMenu ul.inputSearch {
     position: relative;
@@ -171,7 +197,7 @@ body .content {
   padding: 5%;
 }
 body .content h2.contentHeader {
-  font-size: 2em;
+  font-size: 2rem;
   margin: 5% 0%;
   color: #4D5E80;
   text-align: center;
@@ -184,14 +210,14 @@ body .content p.contentText {
   font-weight: 500;
   max-width: 100%;
   width: 700px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   line-height: 30px;
   color: #7D8FB3;
   margin-bottom: 5%;
 }
 body .topic {
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 20px;
   border-radius: 15px;
   padding: 5px 15px;
@@ -228,7 +254,7 @@ body .mainContent h1 {
   margin: 5%;
   width: 60%;
   font-weight: 400;
-  font-size: 4.5em;
+  font-size: 4.5rem;
   line-height: 90px;
   text-align: center;
   color: #FFFFFF;
@@ -280,7 +306,7 @@ body .outStory div.ourInfos div {
   gap: 10px;
 }
 body .outStory div.ourInfos div h3 {
-  font-size: 2em;
+  font-size: 2rem;
 }
 body .servicesContent .ourServices {
   width: 100%;
@@ -292,7 +318,7 @@ body .servicesContent .ourServices {
 body .servicesContent .ourServices h3 {
   color: #4D5E80;
   margin-top: 30px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 body .servicesContent .ourServices .serviceIcon {
   border-radius: 50%;
@@ -312,7 +338,7 @@ body .dealsContent .dealsOption {
   margin-bottom: 60px;
 }
 body .dealsContent .dealsOption div button {
-  font-size: 1em;
+  font-size: 1rem;
   color: #7D8FB3;
   border: none;
   background-color: transparent;
@@ -351,7 +377,7 @@ body .dealsContent .grid .gridItem .gridItemText h3 {
   font-weight: 900;
   font-size: 15px;
   line-height: 30px;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 body .dealsContent .grid .gridItem .gridItemText .value {
@@ -429,7 +455,7 @@ body .contactContent form .form-input input {
   border: none;
   border-radius: 30px;
   padding: 15px 30px;
-  font-size: 1em;
+  font-size: 1rem;
 }
 body .contactContent form .form-input img {
   width: 30px;
@@ -485,4 +511,10 @@ footer .footerTerms ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 60%;
+  }
 }/*# sourceMappingURL=style.css.map */

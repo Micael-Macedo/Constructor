@@ -54,10 +54,11 @@ $buttonBg: #3361FF;
 $buttonColor: white;
 
 $navHeight: 18vh;
-
+html{
+    font-size: 68.75%;
+}
 body {
     background-color: $bgColor;
-
     header {
         width: 100%;
         height: $navHeight;
@@ -78,7 +79,7 @@ body {
 
                     li {
                         font-weight: 700;
-                        font-size: 1em;
+                        font-size: 1.3rem;
                         line-height: 25px;
                         transition: 0.3s;
                         @include spaceBetween(center);
@@ -94,7 +95,7 @@ body {
 
                             &.brandName {
                                 font-weight: 700;
-                                font-size: 1.3em;
+                                font-size: 1.3rem;
                                 line-height: 30px;
                             }
 
@@ -137,10 +138,9 @@ body {
                     flex-direction: column;
 
                     .mobileMenu {
-                        width: 100%;
                         height: $navHeight;
                         @include spaceAround(center);
-                        gap: 100px;
+                        gap: 5%;
 
                         ul {
                             list-style: none;
@@ -152,13 +152,35 @@ body {
                                     text-decoration: none;
                                 }
 
-                                button.hamburguer {
-                                    background-color: transparent;
-                                    border: none;
-
-                                    img {
-                                        width: 60px;
-                                        height: 60px;
+                                &.hamburguer {
+                                    width: 100px;
+                                    @include spaceCenter(center);
+                                    @include Column();
+                                    gap: 8px;
+                                    div{
+                                        width: 40px;
+                                        height: 4px;
+                                        border-radius: 10px;
+                                        background-color: $headerText;
+                                        transition-duration: 0.3s;
+                                    }
+                                    &.on{
+                                        div{
+                                            display: flex;
+                                        }
+                                        .one{
+                                            transform: rotate(45deg);
+                                            position: relative;
+                                            top: 11px;
+                                        }
+                                        .two{
+                                            opacity: 0;
+                                        }
+                                        .three{
+                                            position: relative;
+                                            bottom: 13px;
+                                            transform: rotate(-45deg);
+                                        }
                                     }
                                 }
                                 
@@ -216,7 +238,7 @@ body {
         padding: 5%;
 
         h2.contentHeader {
-            font-size: 2em;
+            font-size: 2rem;
             margin: 5% 0%;
             color: $h2Color;
             text-align: center;
@@ -231,7 +253,7 @@ body {
             font-weight: 500;
             max-width: 100%;
             width: 700px;
-            font-size: 0.9em;
+            font-size: 0.9rem;
             line-height: 30px;
             color: $textColor2;
             margin-bottom: 5%;
@@ -240,7 +262,7 @@ body {
 
     .topic {
         text-align: center;
-        font-size: 1em;
+        font-size: 1rem;
         line-height: 20px;
         border-radius: 15px;
         padding: 5px 15px;
@@ -282,7 +304,7 @@ body {
             margin: 5%;
             width: 60%;
             font-weight: 400;
-            font-size: 4.5em;
+            font-size: 4.5rem;
             line-height: 90px;
             text-align: center;
             color: $h1Color;
@@ -334,7 +356,7 @@ body {
                 gap: 10px;
 
                 h3 {
-                    font-size: 2em;
+                    font-size: 2rem;
                 }
             }
         }
@@ -350,7 +372,7 @@ body {
             h3 {
                 color: $h3Color;
                 margin-top: 30px;
-                font-size: 0.8em;
+                font-size: 0.8rem;
             }
 
             .serviceIcon {
@@ -374,7 +396,7 @@ body {
             div {
 
                 button {
-                    font-size: 1em;
+                    font-size: 1rem;
                     color: $textColor2;
                     border: none;
                     background-color: transparent;
@@ -420,7 +442,7 @@ body {
                         font-weight: 900;
                         font-size: 15px;
                         line-height: 30px;
-                        font-size: 1.2em;
+                        font-size: 1.2rem;
                         margin-bottom: 10px;
                     }
 
@@ -507,7 +529,7 @@ body {
                     border: none;
                     border-radius: 30px;
                     padding: 15px 30px;
-                    font-size: 1em;
+                    font-size: 1rem;
 
                 }
 
@@ -572,5 +594,10 @@ footer {
             list-style: none;
             @include spaceBetween(center);
         }
+    }
+}
+@media (max-width: 450px) {
+    html{
+        font-size: 60%;
     }
 }
