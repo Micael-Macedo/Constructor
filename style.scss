@@ -54,11 +54,14 @@ $buttonBg: #3361FF;
 $buttonColor: white;
 
 $navHeight: 18vh;
-html{
+
+html {
     font-size: 68.75%;
 }
+
 body {
     background-color: $bgColor;
+
     header {
         width: 100%;
         height: $navHeight;
@@ -147,48 +150,56 @@ body {
 
                             li {
                                 @include spaceCenter(center);
+
                                 a {
                                     color: $headerText;
                                     text-decoration: none;
                                 }
 
                                 &.hamburguer {
-                                    width: 100px;
+                                    width: 60px;
                                     @include spaceCenter(center);
                                     @include Column();
                                     gap: 8px;
-                                    div{
-                                        width: 40px;
+
+                                    div {
+                                        width: 35px;
                                         height: 4px;
                                         border-radius: 10px;
                                         background-color: $headerText;
                                         transition-duration: 0.3s;
                                     }
-                                    &.on{
-                                        div{
+
+                                    &.on {
+                                        div {
                                             display: flex;
                                         }
-                                        .one{
+
+                                        .one {
                                             transform: rotate(45deg);
                                             position: relative;
                                             top: 11px;
                                         }
-                                        .two{
+
+                                        .two {
                                             opacity: 0;
                                         }
-                                        .three{
+
+                                        .three {
                                             position: relative;
                                             bottom: 13px;
                                             transform: rotate(-45deg);
                                         }
                                     }
                                 }
-                                
+
                             }
                         }
-                        ul.inputSearch{
+
+                        ul.inputSearch {
                             position: relative;
-                            input{
+
+                            input {
                                 background-color: transparent;
                                 border: 2px solid white;
                                 padding: 5%;
@@ -204,9 +215,10 @@ body {
                                     opacity: 0.6;
                                 }
                             }
-                            i{
-                                position: relative;
-                                right: 30px;
+
+                            i {
+                                position: absolute;
+                                right: 5px;
                             }
                         }
                     }
@@ -246,14 +258,10 @@ body {
 
         p.contentText {
             text-align: center;
-        }
-
-        p.contentText {
-            text-align: center;
             font-weight: 500;
             max-width: 100%;
             width: 700px;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             line-height: 30px;
             color: $textColor2;
             margin-bottom: 5%;
@@ -294,7 +302,7 @@ body {
         padding-top: $navHeight;
         background-image: url("./images/Background.png");
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         display: flex;
         justify-content: top;
         align-items: center;
@@ -312,9 +320,7 @@ body {
 
         .contact {
             width: 100%;
-            @include spaceCenter(center);
-            gap: 81px;
-
+            @include spaceAround(center);            
             div {
                 @include spaceBetween(center);
                 gap: 30px;
@@ -343,6 +349,7 @@ body {
         div.ourInfos {
             @include spaceBetween(center);
             width: 100%;
+
 
             div {
                 @include spaceCenter(center);
@@ -390,7 +397,7 @@ body {
         .dealsOption {
             width: 100%;
             @include spaceCenter(center);
-            gap: 63px;
+            gap: 5%;
             margin-bottom: 60px;
 
             div {
@@ -424,8 +431,9 @@ body {
             }
 
             .gridItem {
+                width: 350px;
                 img {
-                    object-fit: fill;
+                    max-width: 100%;
                 }
 
                 .gridItemText {
@@ -514,6 +522,7 @@ body {
                 flex-wrap: wrap;
 
                 input {
+                    max-width: 100%;
                     width: 50%;
                 }
             }
@@ -521,9 +530,8 @@ body {
             .form-input {
                 position: relative;
                 @include spaceCenter(center);
-
                 input {
-                    max-width: 100%;
+                    width: 100%;
                     min-width: 320px;
                     height: 40px;
                     border: none;
@@ -596,8 +604,75 @@ footer {
         }
     }
 }
-@media (max-width: 450px) {
+
+@media (max-width: 1440px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 1316px) {
     html{
+        font-size: 70%;
+    }
+    body {
+        form {
+            div.form-input {
+                width: 100%;
+                input {
+                    width: 100%;
+                    min-width: 100% !important;
+                }
+            }
+        }
+        .dealsContent{
+            .grid{
+                grid-template-columns: 1fr;
+                flex-wrap: wrap;
+                .gridColumn1, .gridColumn3{
+                    position: static;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    body {
+        .outStory {
+            .ourInfos {
+                justify-content: center !important;
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+        }
+        .clients{
+            flex-wrap: wrap;
+            .clientCommment{
+                max-width: 100%;
+            }
+        }
+        .ourServices{
+            flex-wrap: wrap;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .contact{
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
         font-size: 60%;
+        body{
+            footer{
+                .footerContent{
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+            }
+        }
     }
 }
